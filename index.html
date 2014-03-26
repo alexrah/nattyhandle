@@ -4,6 +4,7 @@
     
     <script type="text/javascript" src="handlebars-v1.3.0.js"></script>
    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script> 
+   <!-- <script type="text/javascript" src="render.js"></script> -->
     <script id="entry-template" type="text/x-handlebars-template">
      <div class="entry">
       <h1>{{title}}</h1>
@@ -15,8 +16,9 @@
     <script type="text/javascript">
   $(window).load(function(){
       var source = $("#entry-template").html();
+      // var source = render('main', {});
       var template = Handlebars.compile(source);
-      var context = {title: "My post is", body: "this is my first post"}
+      var context = {title: "My post is Here", body: "this is my first post" }
       var html = template(context);
       $("#content-placeholder").html(html);
       });
