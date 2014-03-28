@@ -1,4 +1,4 @@
-
+function beautify(){
 setTimeout(function(){
         $('tr').each(function(index){
           console.log(index);
@@ -12,3 +12,4 @@ setTimeout(function(){
           color : "#00cc66",
         }, 3000);
 }, 500);
+}
