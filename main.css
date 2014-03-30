@@ -26,6 +26,7 @@
         -moz-border-radius: 4px;
         background-color: #f5f5f5;
       }
+      .odd { background-color: #dbdbdb; }
       #title {
         padding: 0% ;
         letter-spacing: 2.2px;
