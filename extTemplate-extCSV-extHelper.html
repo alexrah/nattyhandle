@@ -16,7 +16,8 @@
         var json = null;
         $.ajax({
           'async': false,
-          'url': 'DATA/TL-3000.csv',
+          // 'url': 'DATA/TL-3000.csv',
+          'url': 'https://dl.dropboxusercontent.com/u/398944/TL-3000.csv',
           'success': function(data){ json = data; }
           });
         return json;
@@ -37,7 +38,8 @@
 <body>
   <div id="title">
     <h3>Handlebars <span>with external template </span>*handlebars file</h3>
-    <h3>Loading <span>external </span>*JSON file</h3>
+    <h3>Loading <span>external </span>*CSV file from DropBox</h3>
+    <h3>Loading <span>external </span>*handlebars helper</h3>
   </div>
   <div id="placeholder"></div>
 </body>
