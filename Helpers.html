@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<head>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/handlebarsjs/1.3.0/handlebars.min.js"></script>
+  <script type="text/javascript"src="//cdn.jsdelivr.net/jquery/2.1.0/jquery.min.js"></script>
+
+  <script type="text/x-handlebars-template" id="stripes">
+<div id="container">
+</div>
+
+    <table>
+        {{#stripes rows "even" "odd"}}
+            <tr class="{{stripeClass}}">
+                <td>{{value}}</td>
+            </tr>
+        {{/stripes}}
+    </table>
+  </script>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+ Handlebars.registerHelper("stripes", function(array, even, odd, options, elseFn) {
+  if (array && array.length > 0) {
+    var buffer = "";
+    for (var i = 0, j = array.length; i < j; i++) {
+      var item = array[i];
+ 
+      // we'll just put the appropriate stripe class name onto the item for now
+      item.stripeClass = (i % 2 == 0 ? even : odd);
+ 
+      // show the inside of the block
+      buffer += options.fn(item);
+    }
+ 
+    // return the finished buffer
+    return buffer;
+  }
+  else {
+    return elseFn();
+  }
+});
+    var source = $('#stripes').html();
+    var compiled = Handlebars.compile(source);
+    var html = compiled({rows: [
+            {value: 'one'},
+            {value: 'two'},
+            {value: 'three'},
+            {value: 'four'}
+        ]})             
+    $('body').append(html);
+        });
+  </script>
+</head>
+<body></body>
